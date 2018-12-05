@@ -20,7 +20,7 @@ bitibu.allMarketsTicker(function(res){
 setInterval(function() {
 	console.log("_________________________________________________________");
 		//test market maker bot\
-	var theMarket = "onzbtc";
+	var theMarket = "onionbtc";
 	var increase = 0.000000001;
 	var volume = 100;
 	//CLOSE ALL ORDERS
@@ -52,7 +52,7 @@ setInterval(function() {
 					//check if those orders our ours, 
 					var oursSell = false;
 					var oursBuy = false;
-					bitibu.orders("onzbtc", function(res){
+					bitibu.orders("onionbtc", function(res){
 						if(!res.error){
 							//if not ours open orders + 1 and -1 each side of the market to try win spread
 							//console.log(res);
@@ -75,10 +75,10 @@ setInterval(function() {
 								console.log("Buy Price: " + buyPrice);
 								console.log("Sell Price: " + sellPrice);
 			
-								bitibu.createOrder("onzbtc", "buy", volume, buyPrice, function(res){
+								bitibu.createOrder("onionbtc", "buy", volume, buyPrice, function(res){
 									if(!res.error){
 											//sell
-											bitibu.createOrder("onzbtc", "sell", volume, sellPrice, function(res2){
+											bitibu.createOrder("onionbtc", "sell", volume, sellPrice, function(res2){
 												if(!res.error){
 													console.log(res.id + "|" + res.state + "|" + res.side);
 													console.log(res2.id + "|" + res2.state + "|" + res2.side);
@@ -113,4 +113,4 @@ setInterval(function() {
 		}
 	});
 
-}, 30 * 1000); // 60 * 1000 milsec
+}, 300 * 1000); // 60 * 1000 milsec
