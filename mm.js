@@ -1,12 +1,12 @@
-//EXAMPLE Market Making Bot using the graviex API
+//EXAMPLE Market Making Bot using the bitibu API
 
-var graviex = require("./graviex.js");
+var bitibu = require("./bitibu.js");
 
-graviex.accessKey = "";
-graviex.secretKey = "";
+bitibu.accessKey = "";
+bitibu.secretKey = "";
 
 /*
-graviex.allMarketsTicker(function(res){
+bitibu.allMarketsTicker(function(res){
 	if(!res.error){
 		console.log(res);
 	}else{
@@ -26,13 +26,13 @@ setInterval(function() {
 	//CLOSE ALL ORDERS
 	//
 
-	graviex.clearAllOrders(function(res){
+	bitibu.clearAllOrders(function(res){
 		if(!res.error){
 			console.log("Removing old orders...");
 			res.forEach(function(order){
 				console.log(order.id + "|" + order.state + "|" + order.side);
 			});
-			graviex.orderBook(theMarket, function(res){
+			bitibu.orderBook(theMarket, function(res){
 				if(!res.error){
 					//get spread
 			
@@ -52,7 +52,7 @@ setInterval(function() {
 					//check if those orders our ours, 
 					var oursSell = false;
 					var oursBuy = false;
-					graviex.orders("onzbtc", function(res){
+					bitibu.orders("onzbtc", function(res){
 						if(!res.error){
 							//if not ours open orders + 1 and -1 each side of the market to try win spread
 							//console.log(res);
@@ -75,10 +75,10 @@ setInterval(function() {
 								console.log("Buy Price: " + buyPrice);
 								console.log("Sell Price: " + sellPrice);
 			
-								graviex.createOrder("onzbtc", "buy", volume, buyPrice, function(res){
+								bitibu.createOrder("onzbtc", "buy", volume, buyPrice, function(res){
 									if(!res.error){
 											//sell
-											graviex.createOrder("onzbtc", "sell", volume, sellPrice, function(res2){
+											bitibu.createOrder("onzbtc", "sell", volume, sellPrice, function(res2){
 												if(!res.error){
 													console.log(res.id + "|" + res.state + "|" + res.side);
 													console.log(res2.id + "|" + res2.state + "|" + res2.side);

@@ -1,10 +1,10 @@
-# graviex-js
-A libary for graviex API written in JS
-# graviex-js
+# bitibu-js
+A libary for bitibu API written in JS
+# bitibu-js
 
-A libary for graviex API written in JS
+A libary for bitibu API written in JS
 
-Here is a full implimentation of the graviex exchange API in a nodejs NPM package.
+Here is a full implimentation of the bitibu exchange API in a nodejs NPM package.
 
 
 > accessKey secretKey listMarkets allMarketsTicker ticker account
@@ -45,17 +45,17 @@ Here is a full implimentation of the graviex exchange API in a nodejs NPM packag
 # Example
 Install:
 
-    npm install graviex
+    npm install bitibu
 	
 Example:
 
         //Import module
-        var  graviex  =  require("./graviex.js"); 
+        var  bitibu  =  require("./bitibu.js"); 
 	    //Settings / Config  
-        graviex.accessKey  =  "";    
-        graviex.secretKey  =  ""
+        bitibu.accessKey  =  "";    
+        bitibu.secretKey  =  ""
         
-        graviex.allMarketsTicker(function(res){
+        bitibu.allMarketsTicker(function(res){
 	        if(!res.error){        
 	            console.log(res)
 	        }else{        
