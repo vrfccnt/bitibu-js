@@ -32,7 +32,7 @@ Here is a full implimentation of the bitibu exchange API in a nodejs NPM package
     //createOrder    
     //Create a Sell/Buy order    
     /*    
-    createOrder("onzbtc", "buy", "5.0", "0.000000200", function(res){    
+    createOrder("onionbtc", "buy", "5.0", "0.000000200", function(res){    
         if(!res.error){    
             console.log(res);    
         }else{    
